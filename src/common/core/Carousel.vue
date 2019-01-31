@@ -1,10 +1,11 @@
 <template>
   <section :class="cname">
     <swiper :options="options" :not-next-tick="options.notNextTick">
-      <swiper-slide v-for="(item,index) in Items" :key="`${item.href}${index}`">
-        <router-link :to="{ name: item.href}">
-          <img :src="item.src" alt="">
-        </router-link>
+      <swiper-slide v-for="(item,index) in Items" :key="`${index}`">
+        <!--
+          作用域插槽存储当前轮播模块的轮播信息
+        -->
+        <slot :item="item"></slot>
       </swiper-slide>
       <div class="swiper-pagination" v-if="options.pagination" slot="pagination"/>
     </swiper>

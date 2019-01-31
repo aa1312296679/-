@@ -1,12 +1,18 @@
 <template lang="html">
-    <article class="">
-      <Carousel :Items="items" :cname="$style.slider"></Carousel>
-        <section :class="$style.list">
-            <router-link tag="div" :class="$style.item" v-for="item in enters" :key="item.img" :to="{ name: item.href}">
-                    <img :src="item.img" :alt="item.title">
-                    <h4>{{ item.title }}</h4>
-            </router-link>
-        </section>
+    <article>
+      <Carousel :Items="items" :cname="$style.slider">
+        <template slot-scope="props">
+          <router-link :to="{ name: props.item.href}">
+            <img :src="props.item.src" alt="">
+          </router-link>
+        </template>
+      </Carousel>
+      <section :class="$style.list">
+          <router-link tag="div" :class="$style.item" v-for="item in enters" :key="item.img" :to="{ name: item.href}">
+                  <img :src="item.img" :alt="item.title">
+                  <h4>{{ item.title }}</h4>
+          </router-link>
+      </section>
     </article>
 </template>
 

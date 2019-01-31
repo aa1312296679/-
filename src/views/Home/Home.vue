@@ -1,18 +1,17 @@
 <template>
     <div>
-      <home-header></home-header>
       <hislider :items="hisliderItems" :enters="hisliderEnters"></hislider>
       <novice :items="noviceItems"></novice>
       <borrow></borrow>
       <money :items="moneyItmes"></money>
-      <product :proItems="proItems" :options="proOptions"></product>
+      <product :proItems="proItems"></product>
       <life :items="liefeItems"></life>
       <home-footer></home-footer>
     </div>
 </template>
 
 <script>
-import HomeHeader from 'public/header'
+
 import Hislider from './components/hslider'
 import Novice from './components/novice'
 import Borrow from './components/borrow'
@@ -20,10 +19,10 @@ import Money from './components/money'
 import Product from './components/product'
 import Life from './components/life'
 import HomeFooter from 'public/footer'
+
 export default {
   components: {
     Borrow,
-    HomeHeader,
     Hislider,
     Novice,
     Money,
@@ -108,11 +107,6 @@ export default {
         href: 'home',
         src: '//img12.360buyimg.com/jrpmobile/jfs/t15784/188/381232069/39444/8878571d/5a2f6a4aNbd5a574c.jpg?width=335&height=421'
       }],
-      proOptions: {
-        slidesPerView: 2.3,
-        spaceBetween: 30,
-        freeMode: true
-      },
       liefeItems: [{
         src: '//img12.360buyimg.com/jrpmobile/jfs/t4375/104/1184122472/3976/89741da4/58be8a6eNf10193d0.png?width=135&height=135',
         children: ['惠加油']

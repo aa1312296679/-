@@ -2,7 +2,13 @@
   <panel title="新品推荐" :class="$style.panel">
     <section :class="$style.content">
       <div class="arrow">更多尖货 ></div>
-      <Carousel :options="options" :Items="proItems" cname="productCarosel"/>
+      <Carousel :options="options" :Items="proItems" cname="productCarosel">
+        <template slot-scope="props">
+          <router-link :to="{ name: props.item.href}">
+            <img :src="props.item.src" alt="">
+          </router-link>
+        </template>
+      </Carousel>
     </section>
   </panel>
 </template>
@@ -16,9 +22,17 @@ export default {
     Panel,
     Carousel
   },
+  data () {
+    return {
+      options: {
+        slidesPerView: 2.3,
+        spaceBetween: 30,
+        freeMode: true
+      }
+    }
+  },
   props: {
-    proItems: Array,
-    options: Object
+    proItems: Array
   }
 }
 </script>
