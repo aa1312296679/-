@@ -1,0 +1,17 @@
+@mixin better($listHeight:1134px,$listTop:100px,$areaHeight:100%){
+  .list{
+    position:absolute;
+    top:$listTop;
+    left:0;
+    right:0;
+    bottom:0;
+    overflow:hidden;
+    height:$listHeight;
+  }
+  .listContent{
+    width:100%;
+  }
+  .area{
+    height:$areaHeight;
+  }
+}

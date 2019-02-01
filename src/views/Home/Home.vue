@@ -1,5 +1,5 @@
 <template>
-    <div>
+  <init-better-scroll>
       <hislider :items="hisliderItems" :enters="hisliderEnters"></hislider>
       <novice :items="noviceItems"></novice>
       <borrow></borrow>
@@ -7,7 +7,7 @@
       <product :proItems="proItems"></product>
       <life :items="liefeItems"></life>
       <home-footer></home-footer>
-    </div>
+  </init-better-scroll>
 </template>
 
 <script>
