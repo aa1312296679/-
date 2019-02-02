@@ -1,12 +1,19 @@
 <template>
     <div>
-      raise路由页
+      <Rislider :itmes="risliderItmes"></Rislider>
     </div>
 </template>
 
 <script>
+import Rislider from './components/rislider'
 export default {
-  name: 'raise'
+  data () {
+    return {
+      risliderItmes: ['百万白条券免费送，速来领取！！', '签到领流量，1元500M！']
+    }
+  },
+  components: {
+    Rislider
+  }
 }
 </script>
-

@@ -9,8 +9,8 @@ Vue.config.productionTip = false
 Vue.config.devtools = true
 Vue.use(InitBetterScroll)
 fastClick.attach(document.body)
-// 阻止滚动条默认事件
-window.addEventListener('touchmove', e => e.preventDefault(), { passive: false })
+// // 阻止滚动条默认事件
+// window.addEventListener('touchmove', e => e.preventDefault(), { passive: false })
 
 new Vue({
   router,

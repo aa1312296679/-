@@ -1,4 +1,7 @@
 const path = require('path')
+
+const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 function resolve (dir) {
   return path.join(__dirname, dir)
 }
@@ -20,6 +23,50 @@ module.exports = {
     // 打包处理响应式的第三方JS
     viewPort: 'src/viewport.js'
   },
+  // 配置css-loader
+  css: {
+    loaderOptions: {
+      css: {
+        // css-loader配置信息
+        rules: [
+          { test: /\.(sa|sc|c|le)ss$/,
+            use: [
+              {
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                  publicPath: '../'
+                }
+              }, 'css-loader', 'less-loader', 'postcss-loader', 'sass-loader'
+            ]
+          },
+          {
+            test: /\.(png|jpg|gif)$/,
+            use: [
+              {
+                loader: 'url-loader',
+                options: {
+                  limit: 5,
+                  outputPath: 'images'
+                }
+              }
+            ]
+          }
+        ]
+      }
+      // // 配置postcss-loader
+      // ,postcss: {
+      //   options: {
+      //     config: {
+      //       // postcss-loader配置信息
+      //       ctx: {
+      //         'autoprefixer': {},
+      //         'postcss-preset-env': {}
+      //       }
+      //     }
+      //   }
+      // }
+    }
+  },
   lintOnSave: true,
   chainWebpack: (config) => {
     config.resolve.alias
@@ -27,5 +74,14 @@ module.exports = {
       .set('styles', resolve('src/assets/styles'))
       .set('common', resolve('src/common'))
       .set('public', resolve('src/common/public'))
+  },
+  pluginOptions: {
+    foo: {
+      plugins: [new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery'
+      })
+      ]
+    }
   }
 }
