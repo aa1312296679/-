@@ -41,6 +41,9 @@ export default {
           pagination: {
             el: '.swiper-pagination'
           },
+          // 当前swiper对象的初始化机制
+          // true为swiper对象的父组件渲染完成后创建swiper对象
+          // false为swiper对象的父组件创建完成后即在父组件的渲染过程中创建swiper对象
           notNextTick: false
         }
       }

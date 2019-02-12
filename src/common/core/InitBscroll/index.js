@@ -1,7 +1,8 @@
 import InitBscrollComponet from './InitBscroll.vue'
-const Index = {
+const InitBetterScroll = {
   install: function (Vue) {
     Vue.component('InitBetterScroll', InitBscrollComponet)
   }
 }
-export default Index
+// 将导出的内容以对象形式导出
+export {InitBetterScroll}
